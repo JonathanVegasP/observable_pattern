@@ -1,3 +1,5 @@
+## [1.1.3] - Added repository.
+
 ## [1.1.2] - Bug fixes.
 * Bug fixed on Observable.combine was not validating correctly
 
