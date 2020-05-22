@@ -60,7 +60,7 @@ class Observable<V> extends StreamView<V> with Reaction<V> {
     observable.listen((_) {
       var value = true;
       for (var data in observables) {
-        if (data.transformer(data._value) != null) {
+        if (data._hasError) {
           value = false;
           break;
         }
@@ -69,7 +69,7 @@ class Observable<V> extends StreamView<V> with Reaction<V> {
     });
     observable.transformer = (_) {
       for (var data in observables) {
-        if (data.transformer(data._value) != null) {
+        if (data._hasError) {
           data.validate();
         }
       }
@@ -122,6 +122,8 @@ class Observable<V> extends StreamView<V> with Reaction<V> {
     _controller.add(_value);
     return !hasError;
   }
+
+  bool get _hasError => transformer(_value) != null;
 }
 
 extension StringX on String {
