@@ -27,6 +27,7 @@ class Observer<V> extends StatefulWidget {
 
 class _ObserverState<V> extends State<Observer<V>> {
   StreamSubscription<V> _subscription;
+  final _observables = <Observable<V>>[];
 
   @override
   void initState() {
@@ -35,6 +36,7 @@ class _ObserverState<V> extends State<Observer<V>> {
   }
 
   void _subscribe() {
+    _subscription?.cancel();
     _subscription = widget._observable?.listen(_callback);
   }
 
@@ -45,9 +47,21 @@ class _ObserverState<V> extends State<Observer<V>> {
   }
 
   @override
+  void didUpdateWidget(Observer<V> oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget._observable != widget._observable) {
+      _observables.add(oldWidget._observable);
+      _subscribe();
+    }
+  }
+
+  @override
   void dispose() {
     _subscription?.cancel();
     widget._observable?.close();
+    for (var observable in _observables) {
+      observable?.close();
+    }
     super.dispose();
   }
 
