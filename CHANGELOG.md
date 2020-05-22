@@ -1,4 +1,8 @@
+## [1.1.4] - Bug fixes.
+* Fixed a bug when you're validating dynamic objects on Observable.combine.
+
 ## [1.1.3] - Added repository.
+* Now you can make an issue or create a pull request!
 
 ## [1.1.2] - Bug fixes.
 * Bug fixed on Observable.combine was not validating correctly
