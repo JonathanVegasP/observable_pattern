@@ -16,7 +16,8 @@ class Observer<V> extends StatefulWidget {
     Key key,
     Stream<V> stream,
     @required this.builder,
-  })  : assert(stream is Observable, 'This stream must be part of Observable'),
+  })  : assert(stream != null && stream is Observable,
+            'This stream must be part of Observable'),
         assert(builder != null),
         _observable = stream as Observable,
         super(key: key);

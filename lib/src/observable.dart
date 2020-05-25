@@ -50,7 +50,7 @@ class Observable<V> extends StreamView<V> with Reaction<V> {
   dynamic _error;
   ObservableTransformer<V> transformer = (_) => null;
 
-  Observable._(this._controller, this._value) : super(_controller?.stream);
+  Observable._(this._controller, this._value) : super(_controller.stream);
 
   factory Observable([V value]) =>
       Observable._(StreamController.broadcast(sync: true), value);
