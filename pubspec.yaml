@@ -1,6 +1,6 @@
 name: observable_pattern
 description: Observable Pattern is a pattern that use a class to hold a value to manage changes to dispatch notification for every streams
-version: 1.1.4
+version: 1.1.5
 repository: https://github.com/JonathanVegasP/observable_pattern
 homepage: https://jonathanvegas.tech
 
