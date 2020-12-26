@@ -1,0 +1,4 @@
+[submodule "observable_pattern"]
+	path = observable_pattern
+	url = https://github.com/jonathanvegasp/observable_pattern.git
+	branch = master
