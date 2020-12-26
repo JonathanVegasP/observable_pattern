@@ -1,0 +1,3 @@
+[submodule "packages/observable"]
+	path = packages/observable
+	url = https://github.com/jonathanvegasp/observable_pattern.git
